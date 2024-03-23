@@ -79,6 +79,50 @@ public class Room : MonoBehaviour
             currentCellPosition = new Vector3Int(origin.x, (int)(cellSize.y + currentCellPosition.y), origin.z);
         }
         floor.CompressBounds();
+
+        cellSize = walls.cellSize;
+
+        walls.ClearAllTiles();
+
+        currentCellPosition = origin;
+        tiles = TilesResourcesLoader.GetBasicWallsTiles();
+
+        for (var h = 0; h < height; h++)
+        {
+            if (currentCellPosition.y == origin.y)
+            {
+                walls.SetTile(currentCellPosition, tiles.Item2[9]);
+                currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+                for (var w = 1; w < width - 1; w++)
+                {
+                    walls.SetTile(currentCellPosition, tiles.Item2[1]);
+                    currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+                }
+                walls.SetTile(currentCellPosition, tiles.Item2[10]);
+                currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+            } 
+            else if (currentCellPosition.y == origin.y + height - 1)
+            {
+                walls.SetTile(currentCellPosition, tiles.Item2[11]);
+                currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+                for (var w = 1; w < width - 1; w++)
+                {
+                    walls.SetTile(currentCellPosition, tiles.Item2[7]);
+                    currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+                }
+                walls.SetTile(currentCellPosition, tiles.Item2[12]);
+                currentCellPosition = new Vector3Int((int)(cellSize.x + currentCellPosition.x), currentCellPosition.y, origin.z);
+            } 
+            else
+            {
+                walls.SetTile(currentCellPosition, tiles.Item2[5]);
+                currentCellPosition = new Vector3Int((int)(cellSize.x * (width - 1) + currentCellPosition.x), currentCellPosition.y, origin.z);
+                walls.SetTile(currentCellPosition, tiles.Item2[3]);
+            }
+            currentCellPosition = new Vector3Int(origin.x, (int)(cellSize.y + currentCellPosition.y), origin.z);
+        }
+        walls.CompressBounds();
+
     }
     
     /*private void SetupTiles()
