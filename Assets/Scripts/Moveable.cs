@@ -17,6 +17,7 @@ public abstract class Moveable : MonoBehaviour
     void FixedUpdate()
     {
         // Update the rigidbody's velocity.
+        velocity.Normalize();
         rigidbody.velocity = velocity * speed;
     }
 }
