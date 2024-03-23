@@ -24,7 +24,7 @@ public class PlayerMovement : Moveable
         // Create direction vector.
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         // Update the body's direction.
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }

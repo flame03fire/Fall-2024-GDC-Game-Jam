@@ -17,6 +17,9 @@ public class PlayerShoot : MonoBehaviour
     // The jam cooldown.
     public float jamCooldownDuration = 0.10f;
 
+    // Offset the player's position to spawn the bullet.
+    public Vector3 bulletSpawnOffset = new Vector3(0f, 0.5f, 0f);
+
     // The last shot time.
     private float lastShotTime = 0f;
 
@@ -41,12 +44,13 @@ public class PlayerShoot : MonoBehaviour
                 isJammed = true;
                 lastShotTime = Time.time;
                 Debug.Log("Gun jammed!");
-                return; // Exit the Update method if the gun jams
+                return; 
             }
 
-            // If the gun doesn't jam, shoot normally
+            // Gun shoots if not jammed.
             Debug.Log("Shoot!");
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Vector3 spawnPosition = transform.position + transform.TransformDirection(bulletSpawnOffset);
+            GameObject bullet = Instantiate(bulletPrefab, spawnPosition, transform.rotation);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = transform.up * bulletSpeed; 
             lastShotTime = Time.time;
