@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RoomsDataLoader : MonoBehaviour
 {
-    private const string RoomsPath = "Rooms";
+    private const string RoomsPath = "rooms";
 
 
     public Dictionary<int, RoomsData.RoomData> ReadRoomsData()

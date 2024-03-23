@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [Serializable]
-public abstract class RoomsData
+public class RoomsData
 {
     public RoomData[] rooms;
 
@@ -12,7 +12,6 @@ public abstract class RoomsData
     {
         public int id;
         public string type;
-        public int[] path;
         public int[] size;
         public int[] mechanism;
     }
