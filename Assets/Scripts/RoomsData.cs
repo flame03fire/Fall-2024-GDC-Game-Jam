@@ -13,6 +13,8 @@ public class RoomsData
         public int id;
         public string type;
         public int[] size;
+        public int[] door;
+
         public int[] mechanism;
     }
 }

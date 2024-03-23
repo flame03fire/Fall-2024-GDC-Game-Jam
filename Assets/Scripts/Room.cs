@@ -121,6 +121,29 @@ public class Room : MonoBehaviour
             }
             currentCellPosition = new Vector3Int(origin.x, (int)(cellSize.y + currentCellPosition.y), origin.z);
         }
+
+        var door = _roomsData[RoomId].door;
+        if (door[1] == 0)
+        {
+            walls.SetTile(new Vector3Int((int)(cellSize.x * door[0] + origin.x), origin.y, origin.z), tiles.Item2[2]);
+            walls.SetTile(new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), origin.y, origin.z), tiles.Item2[0]);
+        } 
+        else if (door[1] == height)
+        {
+            walls.SetTile(new Vector3Int((int)(cellSize.x * door[0] + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[2]);
+            walls.SetTile(new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[0]);
+        }
+        else if(door[0] == 0)
+        {
+            walls.SetTile(new Vector3Int(origin.x, (int)(cellSize.y * door[1] + origin.y), origin.z), tiles.Item2[2]);
+            walls.SetTile(new Vector3Int(origin.x, (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z), tiles.Item2[8]);
+        }
+        else if (door[0] == width)
+        {
+            walls.SetTile(new Vector3Int((int)(cellSize.x * (width - 1) + origin.x), (int)(cellSize.y * door[1] + origin.y), origin.z), tiles.Item2[0]);
+            walls.SetTile(new Vector3Int((int)(cellSize.x * (width - 1) + origin.x), (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z), tiles.Item2[6]);
+        }
+
         walls.CompressBounds();
 
     }
