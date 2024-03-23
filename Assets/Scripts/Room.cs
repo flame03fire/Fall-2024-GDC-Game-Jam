@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -58,11 +59,11 @@ public class Room : MonoBehaviour
         var last = path.Last();
         foreach (var localPosition in localTilesPositions.GetRange(first, Math.Abs(first - last)))
         {
-            baseLevel.SetTile(localPosition, pathHorizontalTile);
+            level.SetTile(localPosition, pathHorizontalTile);
         }
         var startStopTile = TilesResourcesLoader.GetStartStopTile();
-        baseLevel.SetTile(localTilesPositions[first], startStopTile);
-        baseLevel.SetTile(localTilesPositions[last], startStopTile);
+        level.SetTile(localTilesPositions[first], startStopTile);
+        level.SetTile(localTilesPositions[last], startStopTile);
     }
 }
 }
