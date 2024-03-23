@@ -25,14 +25,29 @@ public class PlayerShoot : MonoBehaviour
     // Offset the player's position to spawn the bullet.
     public Vector3 bulletSpawnOffset = new Vector3(0f, 0.5f, 0f);
 
+    // The shooting sound effect.
+    public AudioClip shootingSound;
+
+    // Reference to the Audio Source component.
+    private AudioSource audioSource;
+
     // The last shot time.
     private float lastShotTime = 0f;
 
     // Checks if it is jammed.
     private bool isJammed = false;
 
+
+    void Start()
+    {
+        /*audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = shootingSound;*/
+    }
+
     // Private for the cooldown variable for jamming.
     private float jamCooldownDuration;
+
 
     // Update is called once per frame
     void Update()
@@ -58,6 +73,7 @@ public class PlayerShoot : MonoBehaviour
 
             // Gun shoots if not jammed.
             Debug.Log("Shoot!");
+            //audioSource.Play();
             Vector3 spawnPosition = transform.position + transform.TransformDirection(bulletSpawnOffset);
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, transform.rotation);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
