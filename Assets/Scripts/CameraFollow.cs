@@ -10,6 +10,10 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.position.x + 0, 0, -10);
+        // Calculate the target position for the camera
+        Vector3 targetPosition = new Vector3(player.position.x, player.position.y, -10);
+
+        // Set the camera's position to the target position
+        transform.position = targetPosition;
     }
 }
