@@ -1,5 +1,5 @@
 # Game Name Here
-<h1>Fall 2024 GDC Game Jam</h1>
+<h1>Spring 2024 GDC Game Jam</h1>
 
 <ul>
   <li>
