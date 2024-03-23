@@ -6,7 +6,7 @@
     <p><b>Me</b>: Background Art, Sound Track, Scripting</p>
   </li>
   <li>
-    <p><b>Alex</b>: Scripting</p>
+    <p><b>Alex</b>: Scripting, Architecture Design</p>
   </li>
   <li>
     <p><b>Garen</b>: Concept Art, Enemy Design</p>
