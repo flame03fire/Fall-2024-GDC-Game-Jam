@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     // The player that the camera follows.
-    public Transform player; 
+    public Transform player;
+
+    // The fixed view for the camera
+    public int fixedView = 3;
 
     // Update is called once per frame
     void Update()
@@ -15,5 +18,8 @@ public class CameraFollow : MonoBehaviour
 
         // Set the camera's position to the target position
         transform.position = targetPosition;
+
+        // Set the camera's orthographic size to the fixed value
+        Camera.main.orthographicSize = fixedView;
     }
 }

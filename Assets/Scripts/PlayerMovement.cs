@@ -20,5 +20,11 @@ public class PlayerMovement : Moveable
 
         // Create velocity vector.
         velocity = new Vector2(translationX, translationY);
+
+        // Create direction vector.
+        direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        // Update the body's direction.
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
