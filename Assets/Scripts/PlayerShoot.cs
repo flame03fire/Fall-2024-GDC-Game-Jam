@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerShoot : MonoBehaviour
 {
+    // The bullet object.
+    public GameObject bulletPrefab;
+
+    // Bullet speed.
+    public float bulletSpeed = 12f;
+
     // The jamming chance.
     public float jamChance = 0.05f;
 
@@ -39,6 +46,9 @@ public class PlayerShoot : MonoBehaviour
 
             // If the gun doesn't jam, shoot normally
             Debug.Log("Shoot!");
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            bulletRigidbody.velocity = transform.up * bulletSpeed; 
             lastShotTime = Time.time;
         }
     }
