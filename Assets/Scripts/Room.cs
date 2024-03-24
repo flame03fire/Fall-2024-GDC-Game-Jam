@@ -9,9 +9,9 @@ public class Room : MonoBehaviour
 {
     private Dictionary<int, RoomsData.RoomData> _roomsData;
     private DataLoader _dataLoader;
-    private int RoomTotalTiles;
-    private Vector2 roomSize;
 
+    public int RoomTotalTiles;
+    public Vector2 roomSize;
     public int RoomId;
 
 
@@ -41,9 +41,10 @@ public class Room : MonoBehaviour
     private void LoadAllTiles()
     {
         var sizes = _roomsData[RoomId].size;
+        this.roomSize = new Vector2(sizes[0], sizes[1]);
         var roomMaps = GetComponentsInChildren<Tilemap>();
-        var floor = roomMaps[0];
-        var walls = roomMaps[4];
+        var floor = roomMaps.FirstOrDefault<Tilemap>(map => map.name == "Floor");
+        var walls = roomMaps.FirstOrDefault<Tilemap>(map => map.name == "Walls");
 
         var origin = floor.origin;
         var cellSize = floor.cellSize;

@@ -12,7 +12,8 @@ public class MazeManager : MonoBehaviour
     private bool[] mazeDone;
 
     public string[] MazeNames;
-    public Scene MazeScene;
+    public bool CustomMazes;
+    public Dictionary<string, Maze> mazes;
 
 
     private void Awake()
@@ -26,15 +27,69 @@ public class MazeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        foreach (string name in MazeNames)
+        if (CustomMazes)
         {
-            _mazes[name] = _dataLoader.ReadMazeData(name)[name];
+            foreach (string name in MazeNames)
+            {
+                _mazes[name] = _dataLoader.ReadMazeData(name)[name];
+            }
+
+            Debug.Log(_mazes.Count + " mazes have been stored in the dictionary!");
+        } else
+        {
+            /*var tmp = GetComponentsInChildren<Tilemap>();
+            int i = 0;
+
+            foreach (Tilemap t in tmp) {
+            {
+                MazeData m = new MazeData();
+                m.name = t.name;
+                var origin = t.origin;
+                var size = t.size;
+                List<MazeData.WallData> walls = new List<MazeData.WallData>();
+                for (int x = origin.x; x < origin.x + size.x; x++)
+                {
+                    for (int y = origin.y; y < origin.y + size.y; y++)
+                    {
+                        if (t.GetTile(new Vector3Int(x, y, origin.z)) != null)
+                        {
+                            MazeData.WallData wall = new MazeData.WallData();
+                            wall.id = i++;
+                            wall.loc = new int[] { x, y };
+                            wa
+                        }
+                    }
+                }
+            }*/
+            int num = transform.childCount;
+
+            for (int i = 0; i < num; i++)
+            {
+                Maze m = transform.GetChild(i).GetComponent<Maze>();
+                if (!mazes.ContainsKey(m.name))
+                {
+                    mazes.Add(m.name, m);
+                }
+            }
+
+            MazeNames = mazes.Keys.ToArray();
+            
+            Debug.Log(MazeNames.Length + " mazes have been stored in the dictionary!");
         }
 
-        Debug.Log(_mazes.Count + " mazes have been stored in the dictionary!");
-        mazeDone = new bool[MazeNames.Length];
+        if (mazeDone == null)
+        {
+            mazeDone = new bool[MazeNames.Length];
+        }
 
-        GetRandomMaze();
+        if (CustomMazes)
+        {
+            GetRandomCustomMaze();
+        } 
+        else
+        {
+            GetRandomPrebuiltMaze();
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +98,7 @@ public class MazeManager : MonoBehaviour
         
     }
 
-    public void GetRandomMaze()
+    public void GetRandomCustomMaze()
     {
         MazeData maze = GetRandomMazeData();
         GenerateMaze(maze);
@@ -79,5 +134,35 @@ public class MazeManager : MonoBehaviour
         }
 
         obstacles.CompressBounds();
+    }
+
+    private void GetRandomPrebuiltMaze()
+    {
+        Maze m = GetRandomMaze();
+        Room r = GetComponent<Room>();
+        Tilemap old = r.GetComponentsInChildren<Tilemap>().FirstOrDefault<Tilemap>(map => map.name == "Obstacles");
+        Tilemap theNew = m.GetComponent<Tilemap>();
+        var origin = r.GetComponentsInChildren<Tilemap>().FirstOrDefault<Tilemap>(map => map.name == "Floor").origin;
+        var size = r.roomSize;
+
+        for  (int y = 0; y < size.y; y++)
+        {
+            for (int x = 0; x < size.x; x++)
+            {
+                old.SetTile(new Vector3Int(x, y, old.origin.z), theNew.GetTile(new Vector3Int(x, y, theNew.origin.z)));
+            }
+        }
+    }
+
+    private Maze GetRandomMaze()
+    {
+        int idx = Random.Range(0, MazeNames.Length);
+
+        while (mazeDone[idx])
+        {
+            idx = Random.Range(0, MazeNames.Length);
+        }
+
+        return mazes[MazeNames[idx]];
     }
 }
