@@ -22,6 +22,7 @@ public class MazeManager : MonoBehaviour
 
         _dataLoader = DataLoader.Instance;
         _mazes = new Dictionary<string, MazeData>();
+        mazes = new Dictionary<string, Maze>();
     }
 
     // Start is called before the first frame update
@@ -149,7 +150,9 @@ public class MazeManager : MonoBehaviour
         {
             for (int x = 0; x < size.x; x++)
             {
-                old.SetTile(new Vector3Int(x, y, old.origin.z), theNew.GetTile(new Vector3Int(x, y, theNew.origin.z)));
+                Tile t = (Tile)theNew.GetTile(new Vector3Int(x, y, theNew.origin.z));
+
+                old.SetTile(new Vector3Int(x, y, old.origin.z), t);
             }
         }
     }
