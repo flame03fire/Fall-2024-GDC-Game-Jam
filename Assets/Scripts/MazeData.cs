@@ -14,9 +14,9 @@ public class MazeData
     [Serializable]
     public class WallData
     {
+        public int id;
         public int roomId;
-        public int[] xloc;
-        public int[] yloc;
+        public int[] loc;
     }
 
     [Serializable]

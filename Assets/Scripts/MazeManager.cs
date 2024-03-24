@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class MazeManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class MazeManager : MonoBehaviour
     private bool[] mazeDone;
 
     public string[] MazeNames;
+    public Scene MazeScene;
 
 
     private void Awake()
@@ -61,7 +63,21 @@ public class MazeManager : MonoBehaviour
 
     private void GenerateMaze(MazeData maze)
     {
-        Tilemap obstacles = GetComponents<Tilemap>().Where(t => t.gameObject.name == "Obstacles").ElementAt(0);
-        var origin = obstacles.origin;
+        //Tilemap[] obstacles = GetComponents<Tilemap>();
+        GameObject roomGrid = GameObject.Find("Room/Grid");
+        var origin = roomGrid.transform.GetChild(0).GetComponent<Tilemap>().origin;
+        Tilemap obstacles = roomGrid.transform.GetChild(2).GetComponent<Tilemap>();
+        var currentCellPosition = origin;
+        var chooser = new System.Random();
+        var tiles = TilesResourcesLoader.GetMazeTileSet1();
+
+
+        //obstacles.SetTile(origin, tiles.Item2[chooser.Next() % tiles.Item2.Length]);
+        foreach (MazeData.WallData wall in maze.walls)
+        {
+            obstacles.SetTile(new Vector3Int(origin.x + wall.loc[0], origin.y + wall.loc[1], origin.z), tiles.Item2[chooser.Next() % tiles.Item2.Length]);
+        }
+
+        obstacles.CompressBounds();
     }
 }

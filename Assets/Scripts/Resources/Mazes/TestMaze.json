@@ -2,9 +2,9 @@
 	"name": "testMaze",
 	"walls": [
 		{
+			"id": 0,
 			"roomId": 1,
-			"xloc": [15, 20],
-			"yloc": [5, 10]
+			"loc": [15, 10]
 		}
 	],
 	"treasures": [
