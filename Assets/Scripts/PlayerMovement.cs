@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : Moveable
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerMovement : Moveable
         if (collision.gameObject.CompareTag("Zombie"))
         {
             Destroy(gameObject);
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 5503520108078369969}
   - component: {fileID: 8669293589432647887}
   - component: {fileID: 4352794728237823494}
+  - component: {fileID: 391446220248551431}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -169,6 +170,42 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &391446220248551431
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101105699142198123}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &3661257485831466027
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49073db7a8bce5e4fb37435241dc13ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoomTotalTiles: 0
+  roomSize: {x: 0, y: 0}
   RoomId: 0
 --- !u!114 &7360082994887011579
 MonoBehaviour:
