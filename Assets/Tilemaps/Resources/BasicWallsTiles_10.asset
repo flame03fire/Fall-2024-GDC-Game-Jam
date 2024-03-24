@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: BasicWallsTiles_10
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -718928197, guid: f811de6e3519cc2429df7a0757e7f07c, type: 3}
+  m_Sprite: {fileID: -163261383, guid: f811de6e3519cc2429df7a0757e7f07c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
