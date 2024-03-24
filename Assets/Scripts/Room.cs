@@ -43,11 +43,12 @@ public class Room : MonoBehaviour
         var sizes = _roomsData[RoomId].size;
         var roomMaps = GetComponentsInChildren<Tilemap>();
         var floor = roomMaps[0];
-        var walls = roomMaps[1];
+        var walls = roomMaps[4];
 
         var origin = floor.origin;
         var cellSize = floor.cellSize;
 
+        origin.z = floor.origin.z;
         floor.ClearAllTiles();
 
         var currentCellPosition = origin;
@@ -80,6 +81,7 @@ public class Room : MonoBehaviour
 
         cellSize = walls.cellSize;
 
+        origin.z = walls.origin.z;
         walls.ClearAllTiles();
 
         currentCellPosition = origin;

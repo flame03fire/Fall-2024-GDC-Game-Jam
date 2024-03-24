@@ -67,11 +67,11 @@ public class MazeManager : MonoBehaviour
         GameObject roomGrid = GameObject.Find("Room/Grid");
         var origin = roomGrid.transform.GetChild(0).GetComponent<Tilemap>().origin;
         Tilemap obstacles = roomGrid.transform.GetChild(2).GetComponent<Tilemap>();
-        var currentCellPosition = origin;
         var chooser = new System.Random();
         var tiles = TilesResourcesLoader.GetMazeTileSet1();
 
 
+        origin.z = obstacles.origin.z;
         //obstacles.SetTile(origin, tiles.Item2[chooser.Next() % tiles.Item2.Length]);
         foreach (MazeData.WallData wall in maze.walls)
         {
