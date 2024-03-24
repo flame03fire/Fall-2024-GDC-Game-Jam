@@ -371,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239249845}
   - component: {fileID: 239249844}
+  - component: {fileID: 239249846}
   m_Layer: 0
   m_Name: Game over text
   m_TagString: Untagged
@@ -445,6 +446,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239249846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239249843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60266c75bb587884da121ab8a247857d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scream: {fileID: 8300000, guid: 8a814d83e5eb66740815292144ebeeea, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &291822646
 GameObject:
   m_ObjectHideFlags: 0
