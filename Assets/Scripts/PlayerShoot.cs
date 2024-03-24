@@ -28,8 +28,13 @@ public class PlayerShoot : MonoBehaviour
     // The shooting sound effect.
     public AudioClip shootingSound;
 
+    // The jamming sound effect.
+    public AudioClip jammingSound;
+
     // Reference to the Audio Source component.
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+
+    public AudioSource audioSource2;
 
     // The last shot time.
     private float lastShotTime = 0f;
@@ -40,9 +45,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Start()
     {
-        /*audioSource = GetComponent<AudioSource>();
-
-        audioSource.clip = shootingSound;*/
+        
     }
 
     // Private for the cooldown variable for jamming.
@@ -50,7 +53,7 @@ public class PlayerShoot : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Timer if statement
         if (isJammed && Time.time - lastShotTime >= jamCooldownDuration)
@@ -59,19 +62,20 @@ public class PlayerShoot : MonoBehaviour
         }
 
         // Shooting with right mouse button
-        else if (Input.GetKey(KeyCode.Mouse0) && !isJammed && Time.time - lastShotTime >= timeBetweenShots)
+        if (Input.GetKey(KeyCode.Mouse0) && !isJammed && Time.time - lastShotTime >= timeBetweenShots)
         {
             // Check if the gun jams
             if (Random.value < jamChance)
             {
                 isJammed = true;
+                audioSource2.Play();
                 lastShotTime = Time.time;
                 jamCooldownDuration = Random.Range(minJamCooldownDuration, maxJamCooldownDuration);
                 return; 
             }
 
             // Gun shoots if not jammed.
-            //audioSource.Play();
+            audioSource.Play();
             Vector3 spawnPosition = transform.position + transform.TransformDirection(bulletSpawnOffset);
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, transform.rotation);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
