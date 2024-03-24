@@ -8,6 +8,8 @@ public class ZombieEnemy : Moveable
     // The target the enemy follows.
     private GameObject player;
 
+    private KeySpawn keySpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class ZombieEnemy : Moveable
 
         // Find the player GameObject.
         player = GameObject.Find("Player");
+
+        keySpawn = GameObject.FindObjectOfType<KeySpawn>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,15 @@ public class ZombieEnemy : Moveable
             rigidbody.rotation = angle;
         }
 
+    }
+
+    // For decreasing zombies.
+    void OnDestroy()
+    {
+        if (keySpawn != null) 
+        {
+            keySpawn.EnemyDefeated();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
