@@ -1,6 +1,12 @@
 {
 	"rooms": [
 		{
+			"id": 0,
+			"type": "Tutorial",
+			"size": [20, 20],
+			"door": [10, 20]
+		},
+		{
 			"id": 1,
 			"type": "Puzzle",
 			"size": [25, 20],
