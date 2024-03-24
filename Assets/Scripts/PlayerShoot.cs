@@ -67,12 +67,10 @@ public class PlayerShoot : MonoBehaviour
                 isJammed = true;
                 lastShotTime = Time.time;
                 jamCooldownDuration = Random.Range(minJamCooldownDuration, maxJamCooldownDuration);
-                Debug.Log("Gun jammed!");
                 return; 
             }
 
             // Gun shoots if not jammed.
-            Debug.Log("Shoot!");
             //audioSource.Play();
             Vector3 spawnPosition = transform.position + transform.TransformDirection(bulletSpawnOffset);
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, transform.rotation);
