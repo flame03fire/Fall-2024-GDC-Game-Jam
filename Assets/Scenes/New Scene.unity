@@ -876,6 +876,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 475712480666368792, guid: 59bb2fa9862efc24eb9b1dca0c0bbf46, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902861067431907862, guid: 59bb2fa9862efc24eb9b1dca0c0bbf46, type: 3}
+      propertyPath: jammingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ab9741e845efc443ba2a61f820b785d, type: 3}
     - target: {fileID: 902861067431907862, guid: 59bb2fa9862efc24eb9b1dca0c0bbf46, type: 3}
       propertyPath: shootingSound
       value: 
