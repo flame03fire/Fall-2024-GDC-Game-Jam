@@ -140,9 +140,9 @@ public class MazeManager : MonoBehaviour
     private void GetRandomPrebuiltMaze()
     {
         Maze m = GetRandomMaze();
-        Room r = GetComponent<Room>();
-        Tilemap old = r.GetComponentsInChildren<Tilemap>().FirstOrDefault<Tilemap>(map => map.name == "Obstacles");
-        Tilemap theNew = m.GetComponent<Tilemap>();
+        Room r = GameObject.Find("Room").GetComponent<Room>();
+        Tilemap old = r.GetComponentsInChildren<Tilemap>()[1];
+        Tilemap theNew = m.GetComponentInChildren<Tilemap>(true);
         var origin = r.GetComponentsInChildren<Tilemap>().FirstOrDefault<Tilemap>(map => map.name == "Floor").origin;
         var size = r.roomSize;
 
@@ -150,9 +150,9 @@ public class MazeManager : MonoBehaviour
         {
             for (int x = 0; x < size.x; x++)
             {
-                Tile t = (Tile)theNew.GetTile(new Vector3Int(x, y, theNew.origin.z));
+                Tile t = (Tile)theNew.GetTile(new Vector3Int(x + theNew.origin.x, y + theNew.origin.y, theNew.origin.z));
 
-                old.SetTile(new Vector3Int(x, y, old.origin.z), t);
+                old.SetTile(new Vector3Int(x + origin.x, y + origin.y, origin.z), t);
             }
         }
     }
