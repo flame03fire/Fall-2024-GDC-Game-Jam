@@ -123,27 +123,37 @@ public class Room : MonoBehaviour
         }
 
         var door = _roomsData[RoomId].door;
+        var doorCollider = GetComponentsInChildren<Collider2D>()[0];
+
         if (door[1] == 0)
         {
             walls.SetTile(new Vector3Int((int)(cellSize.x * door[0] + origin.x), origin.y, origin.z), tiles.Item2[2]);
             walls.SetTile(new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), origin.y, origin.z), tiles.Item2[0]);
+            doorCollider.gameObject.transform.localScale = new Vector3(2 * cellSize.x, cellSize.y, cellSize.z);
+            doorCollider.gameObject.transform.position = new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), origin.y, origin.z);
         } 
         else if (door[1] == height)
         {
-            walls.SetTile(new Vector3Int((int)(cellSize.x * door[0] + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[2]);
-            walls.SetTile(new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[0]);
+            walls.SetTile(new Vector3Int((int)(cellSize.x * door[0] + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[8]);
+            walls.SetTile(new Vector3Int((int)(cellSize.x * (door[0] + 1) + origin.x), (int)(cellSize.y * (height - 1) + origin.y), origin.z), tiles.Item2[6]);
+            doorCollider.gameObject.transform.localScale = new Vector3(2 * cellSize.x, cellSize.y, cellSize.z);
+            doorCollider.gameObject.transform.position = new Vector3((int)(cellSize.x * (door[0] + 1) + origin.x), (int)(cellSize.y * (height - 1) + origin.y) + .5f * cellSize.y, origin.z);
         }
         else if(door[0] == 0)
         {
             walls.SetTile(new Vector3Int(origin.x, (int)(cellSize.y * door[1] + origin.y), origin.z), tiles.Item2[2]);
             walls.SetTile(new Vector3Int(origin.x, (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z), tiles.Item2[8]);
+            doorCollider.gameObject.transform.localScale = new Vector3(cellSize.x, 2 * cellSize.y, cellSize.z);
+            doorCollider.gameObject.transform.position = new Vector3(origin.x + .5f * cellSize.x, (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z);
         }
         else if (door[0] == width)
         {
             walls.SetTile(new Vector3Int((int)(cellSize.x * (width - 1) + origin.x), (int)(cellSize.y * door[1] + origin.y), origin.z), tiles.Item2[0]);
             walls.SetTile(new Vector3Int((int)(cellSize.x * (width - 1) + origin.x), (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z), tiles.Item2[6]);
+            doorCollider.gameObject.transform.localScale = new Vector3(cellSize.x, 2 * cellSize.y, cellSize.z);
+            doorCollider.gameObject.transform.position = new Vector3((int)(cellSize.x * (width - 1) + origin.x) + .5f * cellSize.x, (int)(cellSize.y * (door[1] + 1) + origin.y), origin.z);
         }
-
+        doorCollider.gameObject.SetActive(true);
         walls.CompressBounds();
 
     }
