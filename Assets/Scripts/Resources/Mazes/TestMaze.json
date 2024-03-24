@@ -1,0 +1,61 @@
+{
+	"name": "testMaze",
+	"walls": [
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [14, 19]
+		},
+		{
+			"id": 1,
+			"roomId": 1,
+			"loc": [14, 18]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [14, 17]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [17, 19]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [17, 18]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [18, 18]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [19, 18]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [19, 17]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [19, 16]
+		},
+		{
+			"id": 0,
+			"roomId": 1,
+			"loc": [14, 17]
+		}
+	],
+	"treasures": [
+		{
+			"name": "schitzo key",
+			"loc": [5, 12]
+		}
+	]
+}

@@ -8,6 +8,7 @@ public static class TilesResourcesLoader
 {
     private const string BasicFloorsPallet = "BasicFloorTiles";
     private const string BasicWallsPallet = "BasicWallsTiles";
+    private const string MazeTileSet1 = "MazeTileSet";
 
 
     public static (int, Tile[]) GetBasicFloorTiles()
@@ -30,6 +31,19 @@ public static class TilesResourcesLoader
         int lastValid = 0;
 
         for (Tile tile; tile = GetTileByName(BasicWallsPallet + "_" + lastValid); lastValid++)
+        {
+            tiles.Add(tile);
+        }
+
+        return (lastValid, tiles.ToArray());
+    }
+
+    public static (int, Tile[]) GetMazeTileSet1()
+    {
+        List<Tile> tiles = new List<Tile>();
+        int lastValid = 0;
+
+        for (Tile tile; tile = GetTileByName(MazeTileSet1 + "_" + lastValid); lastValid++)
         {
             tiles.Add(tile);
         }
