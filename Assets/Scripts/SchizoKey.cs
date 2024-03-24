@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SchizoKey : MonoBehaviour
+public class SchizoKey : Pickable
 {
     private SpriteRenderer key;
 
     private int numColors = 100; // Number of colors in the rainbow
     private static int i = 0;
-
-    private bool isPlayerInRange = false;
-
-    public float pickupRange = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,28 +48,4 @@ public class SchizoKey : MonoBehaviour
         key.color = customColor;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // If the object contains the player tag.
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            Destroy(gameObject);
-        }
-    }
 }
