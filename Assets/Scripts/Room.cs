@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 public class Room : MonoBehaviour
 {
     private Dictionary<int, RoomsData.RoomData> _roomsData;
-    private RoomsDataLoader _dataLoader;
+    private DataLoader _dataLoader;
     private int RoomTotalTiles;
     private Vector2 roomSize;
 
@@ -17,9 +17,7 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
-        _dataLoader = GetComponent<RoomsDataLoader>();
+        _dataLoader = GetComponent<DataLoader>();
     }
 
     // Start is called before the first frame update

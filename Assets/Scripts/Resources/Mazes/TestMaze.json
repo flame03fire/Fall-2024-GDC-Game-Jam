@@ -1,0 +1,16 @@
+{
+	"name": "testMaze",
+	"walls": [
+		{
+			"roomId": 1,
+			"xloc": [15, 20],
+			"yloc": [5, 10]
+		}
+	],
+	"treasures": [
+		{
+			"name": "schitzo key",
+			"loc": [5, 12]
+		}
+	]
+}
