@@ -44,7 +44,9 @@ public class ZombieSpawnController : MonoBehaviour
 
     private Vector2 GetSafeSpawnPos()
     {
+        Room r = GameObject.Find("Room").GetComponent<Room>();
         GameObject roomGrid = GameObject.Find("Room/Grid");
+        Tilemap floor = roomGrid.transform.GetChild(0).GetComponent<Tilemap>();
         Tilemap obstacles = roomGrid.transform.GetChild(1).GetComponent<Tilemap>();
         Tilemap walls = roomGrid.transform.GetChild(4).GetComponent<Tilemap>();
         Tilemap enemies = roomGrid.transform.GetChild(2).GetComponent<Tilemap>();
@@ -56,8 +58,14 @@ public class ZombieSpawnController : MonoBehaviour
 
         while (!isValid)
         {
-            x = Mathf.Cos(math.radians((float)(chooser.NextDouble() % 360))) + player.transform.localPosition.x;
-            y = Mathf.Sin(math.radians((float)(chooser.NextDouble() % 360))) + player.transform.localPosition.y;
+            x = Mathf.Cos(math.radians((float)(chooser.NextDouble() % 360))) * visionRadius + player.transform.localPosition.x;
+            y = Mathf.Sin(math.radians((float)(chooser.NextDouble() % 360))) * visionRadius + player.transform.localPosition.y;
+
+            if (x < floor.origin.x || x > (floor.origin.x + r.roomSize.x) ||
+                y < floor.origin.y || y > (floor.origin.y + r.roomSize.y))
+            {
+                continue;
+            }
 
             if (obstacles.GetTile(new Vector3Int((int)(obstacles.origin.x + x), (int)(obstacles.origin.y + y), obstacles.origin.z)) == null &&
                 walls.GetTile(new Vector3Int((int)(walls.origin.x + x), (int)(walls.origin.y + y), walls.origin.z)) == null &&
@@ -70,6 +78,7 @@ public class ZombieSpawnController : MonoBehaviour
                         goto Fail;
                     }
                 }
+                break;
             }
             Fail:
                 continue;
