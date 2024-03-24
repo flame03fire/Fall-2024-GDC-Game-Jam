@@ -7,28 +7,24 @@ public class PlayerMovement : Moveable
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Get rigidbody
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Player controls for movement
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rigidbody.velocity = Vector2.up * speed;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            rigidbody.velocity = Vector2.down * speed;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            rigidbody.velocity = Vector2.left * speed;
-        }
-        else if (Input.GetKeyDown(KeyCode.D)) 
-        {
-            rigidbody.velocity = Vector2.right * speed;
-        }
+        // Get X and Y axis movement.
+        float translationX = Input.GetAxis("Horizontal");
+        float translationY = Input.GetAxis("Vertical");
+
+        // Create velocity vector.
+        velocity = new Vector2(translationX, translationY);
+
+        // Create direction vector.
+        direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        // Update the body's direction.
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 }
