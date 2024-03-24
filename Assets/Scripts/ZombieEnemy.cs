@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class ZombieEnemy : Moveable
 {
-    // The collision box for the zombie.
-    public Collider2D collider;
-
     // The target the enemy follows.
     private GameObject player;
 
