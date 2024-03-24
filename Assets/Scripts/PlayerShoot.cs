@@ -45,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Private for the cooldown variable for jamming.
@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
         // Timer if statement
         if (isJammed && Time.time - lastShotTime >= jamCooldownDuration)
         {
-            isJammed = false; 
+            isJammed = false;
         }
 
         // Shooting with right mouse button
@@ -71,7 +71,7 @@ public class PlayerShoot : MonoBehaviour
                 audioSource2.Play();
                 lastShotTime = Time.time;
                 jamCooldownDuration = Random.Range(minJamCooldownDuration, maxJamCooldownDuration);
-                return; 
+                return;
             }
 
             // Gun shoots if not jammed.
@@ -79,7 +79,7 @@ public class PlayerShoot : MonoBehaviour
             Vector3 spawnPosition = transform.position + transform.TransformDirection(bulletSpawnOffset);
             GameObject bullet = Instantiate(bulletPrefab, spawnPosition, transform.rotation);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-            bulletRigidbody.velocity = transform.up * bulletSpeed; 
+            bulletRigidbody.velocity = transform.up * bulletSpeed;
             lastShotTime = Time.time;
         }
     }
