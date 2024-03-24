@@ -2,9 +2,15 @@
 	"rooms": [
 		{
 			"id": 1,
-			"type": "Puzzle",
+			"type": "Maze",
 			"size": [25, 20],
 			"door": [15, 20]
+		},
+		{
+			"id": 2,
+			"type": "Fight",
+			"size": [30, 30],
+			"door": [15, 30]
 		}
 	]
 }
