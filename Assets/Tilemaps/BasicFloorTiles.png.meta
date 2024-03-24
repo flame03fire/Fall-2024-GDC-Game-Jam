@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -115,8 +115,8 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 3dc8161e2e49450489a3e548146217ec
-      internalID: 1790147828
+      spriteID: 51bb241717de92847a1ca8693cfa04a3
+      internalID: -532420776
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 589f3464fb5c21d46929acd5c8293c3c
-      internalID: 374565948
+      spriteID: 116e66f2479394146bbe0ed9b909ee43
+      internalID: -1821806116
       vertices: []
       indices: 
       edges: []
@@ -165,8 +165,8 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: ee5bba66f379e114d95a84dd4fbfa7ce
-      internalID: 1218979484
+      spriteID: 7090bc6e43f3843429ff464bcb189384
+      internalID: -1590381247
       vertices: []
       indices: 
       edges: []
@@ -190,8 +190,8 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 0c539a96788e7484aa7caec492fd6b35
-      internalID: -1718314412
+      spriteID: 34dac629fe04e854585804c8b108c196
+      internalID: 111596690
       vertices: []
       indices: 
       edges: []
@@ -207,10 +207,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BasicFloorTiles_0: 1790147828
-      BasicFloorTiles_1: 374565948
-      BasicFloorTiles_2: 1218979484
-      BasicFloorTiles_3: -1718314412
+      BasicFloorTiles_0: -532420776
+      BasicFloorTiles_1: -1821806116
+      BasicFloorTiles_2: -1590381247
+      BasicFloorTiles_3: 111596690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
