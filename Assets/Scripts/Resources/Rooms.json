@@ -1,16 +1,160 @@
 {
 	"rooms": [
 		{
+			"id": 0,
+			"type": "Tutorial",
+			"size": [24, 30],
+			"door": [12, 30]
+		},
+		{
 			"id": 1,
-			"type": "Maze",
+			"type": "Fight",
+			"size": [20, 25],
+			"door": [20, 20]
+		},
+		{
+			"id": 2,
+			"type": "Puzzle",
+			"size": [20, 25],
+			"door": [0, 20]
+		},
+		{
+			"id": 3,
+			"type": "Navigation",
+			"size": [15, 30],
+			"door": [15, 5]
+		},
+		{
+			"id": 4,
+			"type": "Open",
+			"size": [15, 30],
+			"door": [0, 25]
+		},
+		{
+			"id": 5,
+			"type": "Puzzle",
 			"size": [25, 20],
 			"door": [15, 20]
 		},
 		{
-			"id": 2,
+			"id": 6,
 			"type": "Fight",
-			"size": [30, 30],
-			"door": [15, 30]
+			"size": [40, 10],
+			"door": [10, 10]
+		},
+		{
+			"id": 7,
+			"type": "Open",
+			"size": [20, 10],
+			"door": [15, 10]
+		},
+		{
+			"id": 8,
+			"type": "Fight",
+			"size": [15, 30],
+			"door": [15, 15]
+		},
+		{
+			"id": 9,
+			"type": "Open",
+			"size": [14, 30],
+			"door": [7, 0]
+		},
+		{
+			"id": 10,
+			"type": "Navigation",
+			"size": [15, 40],
+			"door": [0, 15]
+		},
+		{
+			"id": 11,
+			"type": "Open",
+			"size": [10, 15],
+			"door": [10, 5]
+		},
+		{
+			"id": 12,
+			"type": "Puzzle",
+			"size": [30, 10],
+			"door": [15, 0]
+		},
+		{
+			"id": 13,
+			"type": "Open",
+			"size": [20, 10],
+			"door": [10, 0]
+		},
+		{
+			"id": 14,
+			"type": "Fight",
+			"size": [15, 30],
+			"door": [0, 25]
+		},
+		{
+			"id": 15,
+			"type": "Fight",
+			"size": [15, 15],
+			"door": [15, 7]
+		},
+		{
+			"id": 16,
+			"type": "Puzzle",
+			"size": [30, 15],
+			"door": [15, 0]
+		},
+		{
+			"id": 17,
+			"type": "Open",
+			"size": [10, 8],
+			"door": [0, 4]
+		},
+		{
+			"id": 18,
+			"type": "Open",
+			"size": [15, 15],
+			"door": [15, 5]
+		},
+		{
+			"id": 19,
+			"type": "Open",
+			"size": [20, 10],
+			"door": [15, 0]
+		},
+		{
+			"id": 20,
+			"type": "Open",
+			"size": [20, 10],
+			"door": [5, 0]
+		},
+		{
+			"id": 21,
+			"type": "Navigation",
+			"size": [15, 15],
+			"door": [5, 0]
+		},
+		{
+			"id": 22,
+			"type": "Navigation",
+			"size": [16, 16],
+			"door": [16, 8]
+		},
+		{
+			"id": 23,
+			"type": "Fight",
+			"size": [16, 16],
+			"door": [0, 8]
+		},
+		{
+			"id": 24,
+			"type": "Open",
+			"size": [15, 10],
+			"door": [0, 5]
+		},
+		{
+			"id": 25,
+			"type": "Puzzle",
+			"size": [15, 10],
+			"door": [15, 5]
 		}
 	]
 }

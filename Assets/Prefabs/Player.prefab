@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 2000383449298274804}
   - component: {fileID: 7223433344566555316}
   - component: {fileID: 902861067431907862}
+  - component: {fileID: 4043414806415099171}
   - component: {fileID: 7435833200451199206}
   - component: {fileID: 1809949798557341015}
   - component: {fileID: 8648797403471825052}
@@ -205,6 +206,19 @@ MonoBehaviour:
   jammingSound: {fileID: 8300000, guid: 8ab9741e845efc443ba2a61f820b785d, type: 3}
   audioSource: {fileID: 475712480666368792}
   audioSource2: {fileID: 378191102796355352}
+--- !u!114 &4043414806415099171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356325080799512222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfad0cf116a054c4a94e04ddb293e748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  schizoKeyPrefab: {fileID: 5283081609330586408, guid: aa08c6624d318c5469b32c283007ad37, type: 3}
 --- !u!212 &7435833200451199206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -245,7 +259,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: dc5535cf2f7f67043bd156b6a1caef76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
